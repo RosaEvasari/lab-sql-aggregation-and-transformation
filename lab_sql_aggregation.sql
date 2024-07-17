@@ -4,7 +4,7 @@ USE sakila;
 -- Determine the shortest and longest movie durations and name the values
 SELECT 
 	MAX(length) as max_duration,
-    MIN(length) as max_duration
+    MIN(length) as min_duration
 FROM sakila.film;
 
 -- Express the average movie duration in hours and minutes. Don't use decimals
@@ -104,10 +104,10 @@ ORDER BY average_film_duration DESC;
 -- Identify which ratings have a mean duration of over two hours
 SELECT 
     rating,
-    AVG(length) / 60 AS average_film_duration_hours
+    AVG(length) AS average_film_duration_hours
 FROM sakila.film
 GROUP BY rating
-HAVING average_film_duration_hours > 2;
+HAVING average_film_duration_hours > 120;
 
 -- Determine which last names are not repeated in the table actor
 SELECT last_name
